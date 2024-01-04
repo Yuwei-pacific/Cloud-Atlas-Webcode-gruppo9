@@ -1,0 +1,66 @@
+/* font */
+@font-face {
+  font-family: 'Brand';
+  /* 字体名称，可以自定义 */
+  src: url('./fonts/Brand.ttf')
+}
+
+body {
+  background-color: #15181E;
+  color: #F2E8CF;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.head {
+  text-align: center;
+  font-family: Brand;
+}
+
+/* 1. prima pagina */
+.earth {
+  scale: 1;
+}
+
+
+h1 {
+  flex-shrink: 0;
+  font-size: 200px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 300px */
+  letter-spacing: -4.6px;
+
+}
+
+/* 2. seconda pagina */
+h2 {
+  font-size: 75.794px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 113.691px */
+  letter-spacing: -1.743px;
+}
+
+h3 {
+  font-size: 37.897px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 56.845px */
+  letter-spacing: -0.872px;
+}
+
+.firstTitle .head {
+  margin: 0;
+}
