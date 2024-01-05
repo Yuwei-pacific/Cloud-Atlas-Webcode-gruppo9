@@ -5,6 +5,16 @@
   src: url('./fonts/Brand.ttf')
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
 body {
   background-color: #15181E;
   color: #F2E8CF;
@@ -12,12 +22,9 @@ body {
 
 .section {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
+  margin: auto;
 }
 
 .head {
@@ -27,12 +34,18 @@ body {
 
 /* 1. prima pagina */
 .bigtitle {
-  background-color: #fff;
-  height: 1200px;
+  /* background-color: #fff; */
+  height: 300px;
 }
 
-.earth {
-  scale: 0.1;
+/* .earth {
+  background-color: cadetblue;
+} */
+
+.earth img {
+  scale: 2;
+  position: relative;
+  top: 300px;
 }
 
 
@@ -52,7 +65,6 @@ h2 {
   font-size: 75.794px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%;
   /* 113.691px */
   letter-spacing: -1.743px;
 }
@@ -61,18 +73,37 @@ h3 {
   font-size: 37.897px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%;
   /* 56.845px */
   letter-spacing: -0.872px;
 }
 
-.firstTitle .head {
-  margin: 0;
+.firstTitle {
+  /* background-color: #fff; */
+  margin: 150px;
+  margin-bottom: 100px;
+}
+
+.text-slider {
+  position: relative;
+  overflow: hidden;
+  /* background-color: #fff; */
+  height: 300px;
+  line-height: 300px;
+  margin-left: 300px;
+  margin-right: 300px;
+  border: 2px solid #F2E8CF;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .text-slider span {
+  /* background-color: #fff; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  line-height: normal;
   display: inline-block;
-  width: 50%;
-  height: 10px;
-  overflow: hidden;
+  width: 500px;
+  transform: translate(-50%, -50%);
+  transition: all .3s;
 }
