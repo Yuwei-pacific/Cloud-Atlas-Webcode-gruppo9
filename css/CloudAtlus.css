@@ -26,8 +26,13 @@ body {
 }
 
 /* 1. prima pagina */
+.bigtitle {
+  background-color: #fff;
+  height: 1200px;
+}
+
 .earth {
-  scale: 1;
+  scale: 0.1;
 }
 
 
@@ -63,4 +68,11 @@ h3 {
 
 .firstTitle .head {
   margin: 0;
+}
+
+.text-slider span {
+  display: inline-block;
+  width: 50%;
+  height: 10px;
+  overflow: hidden;
 }

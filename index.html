@@ -10,7 +10,9 @@
 
 <body>
   <div class="section">
-    <h1 class="head">CloudAtlus</h1>
+    <div class="bigtitle">
+      <h1 class="head">CloudAtlus</h1>
+    </div>
     <div class="earth">
       <img src="./img/EarthVector.svg" alt="">
     </div>
@@ -21,44 +23,26 @@
       <h2 class="head">FUTURE. PRESENT. PAST.</h2>
       <h3 class="head"> EVERYTHING IS CONNECTED</h3>
     </div>
-    <div class="text-slider-container">
-      <div class="text-slider">
-        <ul class="text-items">
-          <li>DIRECTED BY LILLY WACHOWSKI TOM TYKWER ANDY WACHOWSKI</li>
-          <li>The story is a time-shifting weave of six interlinking narratives set in different eras and places. A
-            time
-            journey in which past, present and future merge: from the remote South Pacific of the nineteenth century
-            to a
-            post-apocalyptic future.Action, romance and destiny intertwine dramatically through the story showing how
-            human connections overcome the barriers of time and space and where a single gesture can have an impact
-            that
-            spreads through the centuries.</li>
-          <li>The project aims to represent and to “give life” to the imaginary thread that connects the six stories,
-            making it the key and recurring element throughout the website.A thread that will create three different
-            representations to explain the three crucial aspects of the film.</li>
-        </ul>
-      </div>
+    <div class="text-slider">
+      <span>DIRECTED BY LILLY WACHOWSKI TOM TYKWER ANDY WACHOWSKI</span>
+      <span>The story is a time-shifting weave of six interlinking narratives set in different eras and places. A
+        time
+        journey in which past, present and future merge: from the remote South Pacific of the nineteenth century
+        to a
+        post-apocalyptic future.Action, romance and destiny intertwine dramatically through the story showing how
+        human connections overcome the barriers of time and space and where a single gesture can have an impact
+        that
+        spreads through the centuries.</span>
+      <span>The project aims to represent and to “give life” to the imaginary thread that connects the six stories,
+        making it the key and recurring element throughout the website.A thread that will create three different
+        representations to explain the three crucial aspects of the film.</span>
     </div>
     <button onclick="showNext()">Next</button>
   </div>
 
 
 
-  <div class="box">
-    <div class="small"></div>
-  </div>
 
-  <script>
-    var currentIndex = 0;
-    var textItems = document.querySelector(".text-items");
-    var items = textItems.querySelectorAll("li");
-
-    function showNext() {
-      items[currentIndex].classList.remove("visible");
-      currentIndex = (currentIndex + 1) % items.length;
-      items[currentIndex].classList.add("visible");
-    }
-  </script>
 </body>
 
 </html>
