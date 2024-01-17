@@ -107,3 +107,21 @@ h3 {
   transform: translate(-50%, -50%);
   transition: all .3s;
 }
+
+.svgContainer {
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.svgContainer text {
+  font-family: helvetica;
+}
+
+.svgContainer .name {
+  font-size: 9px;
+}
+
+.svgContainer .years {
+  font-family: Brand;
+  font-size: 25px;
+}
