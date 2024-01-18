@@ -35,10 +35,15 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
 
   // 声明颜色比例尺
+  // const color = d3
+  //   .scaleOrdinal()
+  //   .domain(data.map((d) => d.chapter))
+  //   .range(colorSet);
+
   const color = d3
     .scaleOrdinal()
     .domain(data.map((d) => d.chapter))
-    .range(colorSet);
+    .range(d3.schemeSet3);
 
 
   // ------------------------------------------------------------------------------------------------------------------------------
@@ -249,6 +254,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
 
   // ------------------------------------------------------------------------------------------------------------------------------
+
+
   // ------------------------------------------------------------------------------------------------------------------------------
 
   // ----------------------------------------------------centro--------------------------------------------------------------------
@@ -286,19 +293,199 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("transform", `translate(${myWidth / 2},${myHeight / 2})`)
     .attr("d", arcPath)
     .attr("fill", (d) => color(d.data.chapter))
+    .attr('opacity', 0.5)
   // .attr("stroke", "#f2e8cf")
   // .attr("stroke-width", 0.1);
 
   // svg.selectAll(".chapter-1").attr("d", outPath);
 
 
+
+  // ------------------------------------------------------------------------------------------------------------------------------
+  //start point
+
+  svg.append('path')
+    .attr('d', `M${myWidth / 2} 105 V 60 H ${myWidth / 2 + 60}`)
+    .attr('fill', 'none')
+    .attr('stroke', '#F2E8CF')
+
+  svg.append('text')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2 + 100)
+    .attr('y', 60)
+    .text('start point')
+    .style('font-family', 'Brand')
+    .style('font-size', '12px ')
+    .attr('fill', '#F2E8CF');
+
+  // ------------------------------------------------------------------------------------------------------------------------------
+  // primo
+  svg.append('text')
+    .attr('class', 'primo-Title')
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 - 10)  // Adjusted y-coordinate
+    .style('font-size', '12px ')
+    .style('opacity', 0)  // Adjusted opacity for visibility
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('THE PACIFIC DIARY');
+
+  svg.append('text')
+    .attr('class', 'primo-Title')
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 + 10)  // Adjusted y-coordinate
+    .style('font-size', '12px ')
+    .style('opacity', 0)  // Adjusted opacity for visibility
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('OF ADAM EWING');
+
+
+  // secondo
+  svg.append('text')
+    .attr('class', 'secondo-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 - 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('THE LETTERS');
+
+  svg.append('text')
+    .attr('class', 'secondo-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 + 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('FROM ZEDELGHEM');
+
+  //terzo
+  svg.append('text')
+    .attr('class', 'terzo-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 - 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('HALF LIVES: THE FIRST');
+
+  svg.append('text')
+    .attr('class', 'terzo-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 + 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('LUISA REY MISTERY');
+
+  //quarto
+  svg.append('text')
+    .attr('class', 'quarto-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 - 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('THE GHASTLY OREDEAL OF');
+
+  svg.append('text')
+    .attr('class', 'quarto-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 + 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('TIMOTHY CAVENDISH');
+
+  // quindo
+  svg.append('text')
+    .attr('class', 'quinto-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 - 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('THE REVELATION');
+
+  svg.append('text')
+    .attr('class', 'quinto-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 + 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('OF SOMNI-452');
+
+  //sesto
+  svg.append('text')
+    .attr('class', 'sesto-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 - 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('SLOOSHA’S CROSSING');
+
+  svg.append('text')
+    .attr('class', 'sesto-Title')
+    .attr('text-anchor', 'middle')  // 居中对齐
+    .attr('dominant-baseline', 'middle')
+    .attr('x', myWidth / 2)
+    .attr('y', myHeight / 2 + 10)
+    .style('font-size', '12px ')
+    .style('opacity', 0)
+    .attr('fill', '#F2E8CF')
+    .style('font-family', 'Brand')
+    .text('AND EVERYTHING AFTER');
+
   return svg.node();
 
 }))
 
 // ------------------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------------------
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[4].offsetTop && scrollY <= page[10].offsetTop) {
+    svg.selectAll('.left').attr('transform', 'translate(-30, 0)')
+    svg.selectAll('.right').attr('transform', 'translate(30, 0)')
+  } else {
+    svg.selectAll('.left').attr('transform', 'translate(0, 0)')
+    svg.selectAll('.right').attr('transform', 'translate(0, 0)')
 
+  }
+})
 
 window.addEventListener('scroll', d => {
   if (scrollY >= page[4].offsetTop && scrollY <= page[5].offsetTop) {
@@ -311,7 +498,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
-    svg.selectAll(".chapter-1").attr("d", outPath);
+    svg.selectAll(".chapter-1").attr("d", outPath).attr('opacity', 1);
+    svg.selectAll('.primo-Title').style('opacity', 1)
+
 
   } else {
     const circle = document.querySelector('circle.primoC')
@@ -323,7 +512,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
-    svg.selectAll(".chapter-1").attr("d", arcPath);
+    svg.selectAll(".chapter-1").attr("d", arcPath).attr('opacity', 0.5);
+    svg.selectAll('.primo-Title').style('opacity', 0)
+
   }
 })
 
@@ -338,7 +529,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
-    svg.selectAll(".chapter-2").attr("d", outPath);
+    svg.selectAll(".chapter-2").attr("d", outPath).attr('opacity', 1);
+    svg.selectAll('.secondo-Title').style('opacity', 1)
+
 
   } else {
     const circle = document.querySelector('circle.secondoC')
@@ -350,7 +543,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
-    svg.selectAll(".chapter-2").attr("d", arcPath);
+    svg.selectAll(".chapter-2").attr("d", arcPath).attr('opacity', 0.5);
+    svg.selectAll('.secondo-Title').style('opacity', 0)
+
   }
 })
 
@@ -365,7 +560,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
-    svg.selectAll(".chapter-3").attr("d", outPath);
+    svg.selectAll(".chapter-3").attr("d", outPath).attr('opacity', 1);
+    svg.selectAll('.terzo-Title').style('opacity', 1)
+
 
   } else {
     const circle = document.querySelector('circle.terzoC')
@@ -377,7 +574,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
-    svg.selectAll(".chapter-3").attr("d", arcPath);
+    svg.selectAll(".chapter-3").attr("d", arcPath).attr('opacity', 0.5);
+    svg.selectAll('.terzo-Title').style('opacity', 0)
+
   }
 })
 
@@ -392,7 +591,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
-    svg.selectAll(".chapter-4").attr("d", outPath);
+    svg.selectAll(".chapter-4").attr("d", outPath).attr('opacity', 1);
+    svg.selectAll('.quarto-Title').style('opacity', 1)
+
 
   } else {
     const circle = document.querySelector('circle.quartoC')
@@ -404,7 +605,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
-    svg.selectAll(".chapter-4").attr("d", arcPath);
+    svg.selectAll(".chapter-4").attr("d", arcPath).attr('opacity', 0.5);
+    svg.selectAll('.quarto-Title').style('opacity', 0)
+
   }
 })
 
@@ -419,7 +622,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
-    svg.selectAll(".chapter-5").attr("d", outPath);
+    svg.selectAll(".chapter-5").attr("d", outPath).attr('opacity', 1);
+    svg.selectAll('.quinto-Title').style('opacity', 1)
+
 
   } else {
     const circle = document.querySelector('circle.quintoC')
@@ -431,7 +636,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
-    svg.selectAll(".chapter-5").attr("d", arcPath);
+    svg.selectAll(".chapter-5").attr("d", arcPath).attr('opacity', 0.5);
+    svg.selectAll('.quinto-Title').style('opacity', 0)
+
   }
 })
 
@@ -446,7 +653,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
-    svg.selectAll(".chapter-6").attr("d", outPath);
+    svg.selectAll(".chapter-6").attr("d", outPath).attr('opacity', 1);
+    svg.selectAll('.sesto-Title').style('opacity', 1)
+
 
   } else {
     const circle = document.querySelector('circle.sestoC')
@@ -458,7 +667,9 @@ window.addEventListener('scroll', d => {
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
-    svg.selectAll(".chapter-6").attr("d", arcPath);
+    svg.selectAll(".chapter-6").attr("d", arcPath).attr('opacity', 0.5);
+    svg.selectAll('.sesto-Title').style('opacity', 0)
+
   }
 })
 
