@@ -21,8 +21,15 @@ body {
 }
 
 .section {
-  height: 100vh;
+  height: 982px;
   overflow: hidden;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.scrollSection {
+  height: 500px;
   text-align: center;
   margin: auto;
 }
@@ -61,39 +68,55 @@ h1 {
 }
 
 /* 2. seconda pagina */
-h2 {
+
+.firstTitle {
+  font-family: Brand;
+}
+
+.future {
+  position: fixed;
+  top: 160px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 75.794px;
   font-style: normal;
   font-weight: 400;
   /* 113.691px */
   letter-spacing: -1.743px;
+  opacity: 0;
 }
 
-h3 {
+
+.everyThing {
+  position: fixed;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 37.897px;
   font-style: normal;
   font-weight: 400;
   /* 56.845px */
   letter-spacing: -0.872px;
-}
-
-.firstTitle {
-  /* background-color: #fff; */
-  margin: 150px;
-  margin-bottom: 100px;
+  opacity: 0;
 }
 
 .text-slider {
-  position: relative;
+  opacity: 0;
+  cursor: pointer;
+  display: block;
+  position: fixed;
+  top: 500px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
+  text-align: center;
   /* background-color: #fff; */
   height: 300px;
+  width: 700px;
   line-height: 300px;
-  margin-left: 300px;
-  margin-right: 300px;
   border: 2px solid #F2E8CF;
   border-radius: 20px;
-  cursor: pointer;
+
 }
 
 .text-slider span {
@@ -105,12 +128,15 @@ h3 {
   display: inline-block;
   width: 500px;
   transform: translate(-50%, -50%);
-  transition: all .3s;
+  transition: all .2s;
 }
 
 .svgContainer {
-  margin: 0 auto;
-  margin-top: 200px;
+  position: fixed;
+  top: 500px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
 }
 
 .svgContainer text {
@@ -124,4 +150,10 @@ h3 {
 .svgContainer .years {
   font-family: Brand;
   font-size: 25px;
+}
+
+.visible {
+  opacity: 1;
+  transition: all 1s;
+  /* 添加透明度的过渡效果 */
 }
