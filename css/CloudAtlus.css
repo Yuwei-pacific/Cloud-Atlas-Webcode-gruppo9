@@ -1,9 +1,14 @@
 /* font */
 @font-face {
   font-family: 'Brand';
-  /* 字体名称，可以自定义 */
   src: url('./fonts/Brand.ttf')
 }
+
+@font-face {
+  font-family: 'imfeel';
+  src: url('./fonts/imfeel.ttf');
+}
+
 
 * {
   margin: 0;
@@ -42,6 +47,7 @@ body {
 /* 1. prima pagina */
 .bigtitle {
   /* background-color: #fff; */
+  margin-top: 270px;
   height: 300px;
 }
 
@@ -139,6 +145,13 @@ h1 {
   opacity: 0;
 }
 
+.svgContainer svg text,
+circle,
+path {
+  transition: all .5s;
+
+}
+
 .svgContainer text {
   font-family: helvetica;
 }
@@ -148,7 +161,7 @@ h1 {
 }
 
 .svgContainer .years {
-  font-family: Brand;
+  /* font-family: Brand; */
   font-size: 25px;
 }
 

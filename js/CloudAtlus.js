@@ -6,6 +6,8 @@ const textSlider = document.querySelector('.text-slider');
 const span = document.querySelectorAll('.text-slider span');
 const part1Svg = document.querySelector('.svgContainer');
 
+// console.log(document.querySelector('#mainsvg text'));
+
 // text scroll ----------------
 
 function updateOpacity() {
@@ -31,7 +33,7 @@ function updateOpacity() {
   if (scrollY >= page[2].offsetTop && scrollY <= page[3].offsetTop) {
     c = 2
     scrollText()
-    console.log(c);
+    // console.log(c);
   }
 
 
@@ -47,14 +49,6 @@ function scrollText() {
 // Attach the updateOpacity function to the scroll event
 window.addEventListener('scroll', updateOpacity);
 
-
-// window.addEventListener('scroll', d => {
-//   if (window.scrollY >= page[6].offsetTop) {
-//     part1Svg.style.opacity = '1';
-//   } else {
-//     part1Svg.style.opacity = '0';
-//   }
-// })
 
 
 

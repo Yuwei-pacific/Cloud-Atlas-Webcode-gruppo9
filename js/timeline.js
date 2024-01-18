@@ -1,3 +1,19 @@
+const svg = d3.select('#mainsvg')
+
+const myHeight = svg.attr('height');
+const myWidth = svg.attr('width');
+
+const pie = d3
+  .pie()
+  .sort(null)
+  .value((d) => d.second);
+
+// 声明圆环函数
+const arcPath = d3.arc().innerRadius(75).outerRadius(100);
+
+// 外部圆环函数
+const outPath = d3.arc().innerRadius(75).outerRadius(110);
+
 // 1. 绘制饼图
 d3.csv('./data/timelineCloudAtlus.csv').then((data => {
   // 声明颜色组
@@ -10,31 +26,13 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     "#898970"
   ];
 
-  // 声明高宽 边距
-  const svg = d3.select('#mainsvg')
-
-  const myHeight = svg.attr('height');
-  const myWidth = svg.attr('width');
-
-  const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-
-  const innerHeight = myHeight - margin.top - margin.bottom;
-  const innerWidth = myWidth - margin.right - margin.left;
-
   // 声明 d3.pie() 生成器
-  const pie = d3
-    .pie()
-    .sort(null)
-    .value((d) => d.second);
+
 
   // 为数据调用d3.pie()生成器
   const arcData = pie(data);
 
-  // 声明圆环函数
-  const arcPath = d3.arc().innerRadius(75).outerRadius(100);
 
-  // 外部圆环函数
-  const outPath = d3.arc().innerRadius(75).outerRadius(110);
 
   // 声明颜色比例尺
   const color = d3
@@ -98,7 +96,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC left years")
+    .attr("class", "secondoC left years")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 2)
     .attr("y", myHeight / 2 - 10)
@@ -109,7 +107,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC left name")
+    .attr("class", "secondoC left name")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 2)
     .attr("y", myHeight / 2 + 15)
@@ -130,7 +128,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC left years")
+    .attr("class", "terzoC left years")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 3)
     .attr("y", myHeight / 2 - 10)
@@ -141,7 +139,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC left name")
+    .attr("class", "terzoC left name")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 3)
     .attr("y", myHeight / 2 + 15)
@@ -164,7 +162,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC right years")
+    .attr("class", "quartoC right years")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 6)
     .attr("y", myHeight / 2 - 10)
@@ -175,7 +173,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC right name")
+    .attr("class", "quartoC right name")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 6)
     .attr("y", myHeight / 2 + 15)
@@ -196,7 +194,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC right years")
+    .attr("class", "quintoC right years")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 7)
     .attr("y", myHeight / 2 - 10)
@@ -207,7 +205,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC right name")
+    .attr("class", "quintoC right name")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 7)
     .attr("y", myHeight / 2 + 15)
@@ -228,7 +226,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC right years")
+    .attr("class", "sestoC right years")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 8)
     .attr("y", myHeight / 2 - 10)
@@ -239,7 +237,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
 
   svg
     .append("text")
-    .attr("class", "primoC right name")
+    .attr("class", "sestoC right name")
     .attr("text-anchor", "middle")
     .attr("x", (myWidth / 9) * 8)
     .attr("y", myHeight / 2 + 15)
@@ -297,4 +295,170 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
   return svg.node();
 
 }))
+
+// ------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------
+
+
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[4].offsetTop && scrollY <= page[5].offsetTop) {
+    const circle = document.querySelector('circle.primoC')
+    circle.style.fill = '#F2E8CF'
+
+    const text = document.querySelectorAll('text.primoC')
+    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
+    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.fill = '#15181E';
+    text[1].style.fill = '#15181E';
+
+    svg.selectAll(".chapter-1").attr("d", outPath);
+
+  } else {
+    const circle = document.querySelector('circle.primoC')
+    circle.style.fill = '#15181E'
+
+    const text = document.querySelectorAll('text.primoC')
+    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.fill = '#F2E8CF';
+    text[1].style.fill = '#F2E8CF';
+
+    svg.selectAll(".chapter-1").attr("d", arcPath);
+  }
+})
+
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[5].offsetTop && scrollY <= page[6].offsetTop) {
+    const circle = document.querySelector('circle.secondoC')
+    circle.style.fill = '#F2E8CF'
+
+    const text = document.querySelectorAll('text.secondoC')
+    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
+    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.fill = '#15181E';
+    text[1].style.fill = '#15181E';
+
+    svg.selectAll(".chapter-2").attr("d", outPath);
+
+  } else {
+    const circle = document.querySelector('circle.secondoC')
+    circle.style.fill = '#15181E'
+
+    const text = document.querySelectorAll('text.secondoC')
+    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.fill = '#F2E8CF';
+    text[1].style.fill = '#F2E8CF';
+
+    svg.selectAll(".chapter-2").attr("d", arcPath);
+  }
+})
+
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[6].offsetTop && scrollY <= page[7].offsetTop) {
+    const circle = document.querySelector('circle.terzoC')
+    circle.style.fill = '#F2E8CF'
+
+    const text = document.querySelectorAll('text.terzoC')
+    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
+    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.fill = '#15181E';
+    text[1].style.fill = '#15181E';
+
+    svg.selectAll(".chapter-3").attr("d", outPath);
+
+  } else {
+    const circle = document.querySelector('circle.terzoC')
+    circle.style.fill = '#15181E'
+
+    const text = document.querySelectorAll('text.terzoC')
+    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.fill = '#F2E8CF';
+    text[1].style.fill = '#F2E8CF';
+
+    svg.selectAll(".chapter-3").attr("d", arcPath);
+  }
+})
+
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[7].offsetTop && scrollY <= page[8].offsetTop) {
+    const circle = document.querySelector('circle.quartoC')
+    circle.style.fill = '#F2E8CF'
+
+    const text = document.querySelectorAll('text.quartoC')
+    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
+    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.fill = '#15181E';
+    text[1].style.fill = '#15181E';
+
+    svg.selectAll(".chapter-4").attr("d", outPath);
+
+  } else {
+    const circle = document.querySelector('circle.quartoC')
+    circle.style.fill = '#15181E'
+
+    const text = document.querySelectorAll('text.quartoC')
+    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.fill = '#F2E8CF';
+    text[1].style.fill = '#F2E8CF';
+
+    svg.selectAll(".chapter-4").attr("d", arcPath);
+  }
+})
+
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[8].offsetTop && scrollY <= page[9].offsetTop) {
+    const circle = document.querySelector('circle.quintoC')
+    circle.style.fill = '#F2E8CF'
+
+    const text = document.querySelectorAll('text.quintoC')
+    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
+    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.fill = '#15181E';
+    text[1].style.fill = '#15181E';
+
+    svg.selectAll(".chapter-5").attr("d", outPath);
+
+  } else {
+    const circle = document.querySelector('circle.quintoC')
+    circle.style.fill = '#15181E'
+
+    const text = document.querySelectorAll('text.quintoC')
+    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.fill = '#F2E8CF';
+    text[1].style.fill = '#F2E8CF';
+
+    svg.selectAll(".chapter-5").attr("d", arcPath);
+  }
+})
+
+window.addEventListener('scroll', d => {
+  if (scrollY >= page[9].offsetTop && scrollY <= page[10].offsetTop) {
+    const circle = document.querySelector('circle.sestoC')
+    circle.style.fill = '#F2E8CF'
+
+    const text = document.querySelectorAll('text.sestoC')
+    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
+    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.fill = '#15181E';
+    text[1].style.fill = '#15181E';
+
+    svg.selectAll(".chapter-6").attr("d", outPath);
+
+  } else {
+    const circle = document.querySelector('circle.sestoC')
+    circle.style.fill = '#15181E'
+
+    const text = document.querySelectorAll('text.sestoC')
+    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.fill = '#F2E8CF';
+    text[1].style.fill = '#F2E8CF';
+
+    svg.selectAll(".chapter-6").attr("d", arcPath);
+  }
+})
 
