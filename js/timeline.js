@@ -44,6 +44,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .scaleOrdinal()
     .domain(data.map((d) => d.chapter))
     .range(d3.schemeSet3);
+  // .range(colorSet);
 
 
   // ------------------------------------------------------------------------------------------------------------------------------
@@ -314,7 +315,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr('dominant-baseline', 'middle')
     .attr('x', myWidth / 2 + 100)
     .attr('y', 60)
-    .text('start point')
+    .text('start')
     .style('font-family', 'Brand')
     .style('font-size', '12px ')
     .attr('fill', '#F2E8CF');

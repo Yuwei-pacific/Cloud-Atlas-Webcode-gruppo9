@@ -4,6 +4,7 @@ const everyThing = document.querySelector('.everyThing');
 const future = document.querySelector('.future');
 const textSlider = document.querySelector('.text-slider');
 const span = document.querySelectorAll('.text-slider span');
+const timelineTitle = document.querySelector('.timelineTitle')
 const part1Svg = document.querySelector('.svgContainer');
 
 // console.log(document.querySelector('#mainsvg text'));
@@ -15,7 +16,7 @@ function updateOpacity() {
 
   // Check scroll position for opacity
   everyThing.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
-  future.classList.toggle('visible', scrollY >= page[0].offsetTop);
+  future.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
   textSlider.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
 
   // Check scroll position for text animation
@@ -38,13 +39,16 @@ function updateOpacity() {
 
 
   // Check scroll position for part1Svg
-  part1Svg.classList.toggle('visible', scrollY >= page[3].offsetTop);
+  part1Svg.classList.toggle('visible', scrollY >= page[3].offsetTop)
+  timelineTitle.classList.toggle('visible', scrollY >= page[3].offsetTop)
 }
 
 
 function scrollText() {
   updateOpacity();
 }
+
+
 
 // Attach the updateOpacity function to the scroll event
 window.addEventListener('scroll', updateOpacity);
