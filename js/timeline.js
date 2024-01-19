@@ -12,7 +12,7 @@ const pie = d3
 const arcPath = d3.arc().innerRadius(75).outerRadius(100);
 
 // 外部圆环函数
-const outPath = d3.arc().innerRadius(75).outerRadius(110);
+const outPath = d3.arc().innerRadius(75).outerRadius(115);
 
 // 1. 绘制饼图
 d3.csv('./data/timelineCloudAtlus.csv').then((data => {
@@ -55,7 +55,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .append("rect")
     .attr("height", myHeight)
     .attr("width", myWidth)
-    .attr("fill", "#15181E");
+    .attr("fill", "#131821");
 
   // 1. primo episodio
   svg
@@ -313,12 +313,16 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
   svg.append('text')
     .attr('text-anchor', 'middle')  // 居中对齐
     .attr('dominant-baseline', 'middle')
-    .attr('x', myWidth / 2 + 100)
+    .attr('x', myWidth / 2 + 79)
     .attr('y', 60)
-    .text('start')
+    .text('>>>> start')
     .style('font-family', 'Brand')
     .style('font-size', '12px ')
     .attr('fill', '#F2E8CF');
+
+
+
+
 
   // ------------------------------------------------------------------------------------------------------------------------------
   // primo
@@ -331,7 +335,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)  // Adjusted opacity for visibility
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('transition', 'opacity 1s ease-in-out')
+    .style('font-family', "IM Fell DW Pica")
     .text('THE PACIFIC DIARY');
 
   svg.append('text')
@@ -343,7 +348,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)  // Adjusted opacity for visibility
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('transition', 'opacity 1s ease-in-out')
+    .style('font-family', "IM Fell DW Pica")
     .text('OF ADAM EWING');
 
 
@@ -357,7 +363,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', "'Lancelot', serif")
     .text('THE LETTERS');
 
   svg.append('text')
@@ -369,7 +375,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', "'Lancelot', serif")
     .text('FROM ZEDELGHEM');
 
   //terzo
@@ -382,7 +388,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', "'Patua One', serif")
     .text('HALF LIVES: THE FIRST');
 
   svg.append('text')
@@ -394,7 +400,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', "'Patua One', serif")
     .text('LUISA REY MISTERY');
 
   //quarto
@@ -407,8 +413,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
-    .text('THE GHASTLY OREDEAL OF');
+    .style('font-family', 'Libre Franklin')
+    .text('GHASTLY OREDEAL OF');
 
   svg.append('text')
     .attr('class', 'quarto-Title')
@@ -419,7 +425,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', 'Libre Franklin')
     .text('TIMOTHY CAVENDISH');
 
   // quindo
@@ -432,7 +438,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', 'Orbitron')
     .text('THE REVELATION');
 
   svg.append('text')
@@ -444,7 +450,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', 'Orbitron')
     .text('OF SOMNI-452');
 
   //sesto
@@ -457,7 +463,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', 'Nova Mono')
     .text('SLOOSHA’S CROSSING');
 
   svg.append('text')
@@ -469,7 +475,7 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .style('font-size', '12px ')
     .style('opacity', 0)
     .attr('fill', '#F2E8CF')
-    .style('font-family', 'Brand')
+    .style('font-family', 'Nova Mono')
     .text('AND EVERYTHING AFTER');
 
   return svg.node();
@@ -494,8 +500,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#F2E8CF'
 
     const text = document.querySelectorAll('text.primoC')
-    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
-    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.cssText = 'font-family: IM Fell DW Pica;';
+    text[1].style.cssText = 'font-family: IM Fell DW Pica;';
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
@@ -508,8 +514,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#15181E'
 
     const text = document.querySelectorAll('text.primoC')
-    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
-    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
@@ -525,8 +531,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#F2E8CF'
 
     const text = document.querySelectorAll('text.secondoC')
-    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
-    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.cssText = 'font-family: Lancelot;';
+    text[1].style.cssText = 'font-family: Lancelot;';
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
@@ -539,8 +545,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#15181E'
 
     const text = document.querySelectorAll('text.secondoC')
-    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
-    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
@@ -556,8 +562,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#F2E8CF'
 
     const text = document.querySelectorAll('text.terzoC')
-    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
-    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.cssText = 'font-family: Patua One;';
+    text[1].style.cssText = 'font-family: Patua One;';
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
@@ -570,8 +576,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#15181E'
 
     const text = document.querySelectorAll('text.terzoC')
-    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
-    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
@@ -587,8 +593,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#F2E8CF'
 
     const text = document.querySelectorAll('text.quartoC')
-    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
-    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.cssText = 'font-family: Libre Franklin;';
+    text[1].style.cssText = 'font-family: Libre Franklin;';
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
@@ -601,8 +607,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#15181E'
 
     const text = document.querySelectorAll('text.quartoC')
-    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
-    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
@@ -618,8 +624,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#F2E8CF'
 
     const text = document.querySelectorAll('text.quintoC')
-    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
-    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.cssText = 'font-family: Orbitron;';
+    text[1].style.cssText = 'font-family: Orbitron;';
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
@@ -632,8 +638,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#15181E'
 
     const text = document.querySelectorAll('text.quintoC')
-    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
-    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 
@@ -649,8 +655,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#F2E8CF'
 
     const text = document.querySelectorAll('text.sestoC')
-    // text[0].style.cssText = 'font-family: imfell; font-style: italic;';
-    // text[1].style.cssText = 'font-family: imfell; font-style: italic;';
+    text[0].style.cssText = 'font-family: Nova Mono;';
+    text[1].style.cssText = 'font-family: Nova Mono;';
     text[0].style.fill = '#15181E';
     text[1].style.fill = '#15181E';
 
@@ -663,8 +669,8 @@ window.addEventListener('scroll', d => {
     circle.style.fill = '#15181E'
 
     const text = document.querySelectorAll('text.sestoC')
-    // text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
-    // text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[0].style.cssText = 'font-family: helvetica; font-style: normal;';
+    text[1].style.cssText = 'font-family: helvetica; font-style: normal;';
     text[0].style.fill = '#F2E8CF';
     text[1].style.fill = '#F2E8CF';
 

@@ -1,3 +1,31 @@
+window.onload = function () {
+  window.scrollTo(0, 0);
+};
+
+let lastScrollTop = 0;
+const maxScrollDistance = 100; // 设置最大滚动距离
+
+window.addEventListener('scroll', function () {
+  const currentScrollTop = window.scrollY;
+
+  // 计算滚动距离
+  const scrollDistance = Math.abs(currentScrollTop - lastScrollTop);
+
+  // 如果滚动距离超过最大值，则将滚动距离限制为最大值
+  if (scrollDistance > maxScrollDistance) {
+    if (currentScrollTop > lastScrollTop) {
+      // 向下滚动
+      window.scrollTo(0, lastScrollTop + maxScrollDistance);
+    } else {
+      // 向上滚动
+      window.scrollTo(0, lastScrollTop - maxScrollDistance);
+    }
+  }
+
+  // 更新上次滚动位置
+  lastScrollTop = window.scrollY;
+});
+
 
 const page = document.querySelectorAll('.scrollSection');
 const everyThing = document.querySelector('.everyThing');
@@ -6,6 +34,76 @@ const textSlider = document.querySelector('.text-slider');
 const span = document.querySelectorAll('.text-slider span');
 const timelineTitle = document.querySelector('.timelineTitle')
 const part1Svg = document.querySelector('.svgContainer');
+const videoBox = document.querySelector('.videoBox')
+const video = document.getElementById('myVideo');
+
+let c = 0
+scrollText()
+everyThing.classList.remove('visible');
+future.classList.remove('visible');
+textSlider.classList.remove('visible');
+
+
+console.log(page);
+
+// // 监听视频播放事件
+video.addEventListener("play", function () {
+  // 在视频播放时禁止页面滚动
+  document.body.style.overflow = "hidden";
+});
+
+//暂停视频
+setTimeout(function () {
+  video.pause();
+  console.log(11111);
+}, 3400); // 5000毫秒等于5秒
+
+
+// 添加滚动范围限制逻辑
+function stopPageScroll() {
+  var scrollTop = window.scrollY;
+
+  if (scrollTop < 1) {
+    window.scrollTo(0, 1);
+  } else if (scrollTop > 10) {
+    window.scrollTo(0, 10);
+  }
+}
+
+
+// // 监听视频暂停事件
+function stopScroll() {
+  // 在视频暂停时允许页面滚动，但限制滚动距离在1-10之间
+  document.body.style.overflow = "auto";
+
+  window.addEventListener("scroll", stopPageScroll);
+}
+video.addEventListener("pause", stopScroll);
+
+
+// 当页面滚动播放视频
+function playVideo() {
+  if (window.scrollY > 1) {
+    video.play()
+  }
+}
+window.addEventListener('scroll', playVideo)
+
+video.addEventListener("ended", function () {
+  // 在视频播放结束后允许页面滚动
+  document.body.style.overflow = "auto";
+  video.removeEventListener('pause', stopScroll)
+  window.removeEventListener('scroll', playVideo)
+  window.removeEventListener("scroll", stopPageScroll);
+  scrollText()
+
+});
+
+
+
+
+
+
 
 // console.log(document.querySelector('#mainsvg text'));
 
@@ -14,6 +112,7 @@ const part1Svg = document.querySelector('.svgContainer');
 function updateOpacity() {
   const scrollY = window.scrollY;
 
+  console.log(scrollY);
   // Check scroll position for opacity
   everyThing.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
   future.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
@@ -51,7 +150,9 @@ function scrollText() {
 
 
 // Attach the updateOpacity function to the scroll event
-window.addEventListener('scroll', updateOpacity);
+video.addEventListener("ended", function () {
+  window.addEventListener('scroll', updateOpacity);
+});
 
 
 
