@@ -13,6 +13,7 @@ const video = document.getElementById('myVideo');
 window.onload = function () {
   window.scrollTo(0, 0);
   part1Svg.classList.remove('visible')
+  timelineTitle.classList.remove('visible')
 };
 
 // let lastScrollTop = 0;
