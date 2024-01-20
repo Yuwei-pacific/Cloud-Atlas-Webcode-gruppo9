@@ -1,5 +1,18 @@
+const page = document.querySelectorAll('.scrollSection');
+const everyThing = document.querySelector('.everyThing');
+const future = document.querySelector('.future');
+const textSlider = document.querySelector('.text-slider');
+const span = document.querySelectorAll('.text-slider span');
+const timelineTitle = document.querySelector('.timelineTitle')
+const part1Svg = document.querySelector('.svgContainer');
+const videoBox = document.querySelector('.videoBox')
+const video = document.getElementById('myVideo');
+
+
+
 window.onload = function () {
   window.scrollTo(0, 0);
+  part1Svg.classList.remove('visible')
 };
 
 // let lastScrollTop = 0;
@@ -26,16 +39,6 @@ window.onload = function () {
 //   lastScrollTop = window.scrollY;
 // });
 
-
-const page = document.querySelectorAll('.scrollSection');
-const everyThing = document.querySelector('.everyThing');
-const future = document.querySelector('.future');
-const textSlider = document.querySelector('.text-slider');
-const span = document.querySelectorAll('.text-slider span');
-const timelineTitle = document.querySelector('.timelineTitle')
-const part1Svg = document.querySelector('.svgContainer');
-const videoBox = document.querySelector('.videoBox')
-const video = document.getElementById('myVideo');
 
 let c = 0
 scrollText()
