@@ -2,29 +2,29 @@ window.onload = function () {
   window.scrollTo(0, 0);
 };
 
-let lastScrollTop = 0;
-const maxScrollDistance = 100; // 设置最大滚动距离
+// let lastScrollTop = 0;
+// const maxScrollDistance = 100; // 设置最大滚动距离
 
-window.addEventListener('scroll', function () {
-  const currentScrollTop = window.scrollY;
+// window.addEventListener('scroll', function () {
+//   const currentScrollTop = window.scrollY;
 
-  // 计算滚动距离
-  const scrollDistance = Math.abs(currentScrollTop - lastScrollTop);
+//   // 计算滚动距离
+//   const scrollDistance = Math.abs(currentScrollTop - lastScrollTop);
 
-  // 如果滚动距离超过最大值，则将滚动距离限制为最大值
-  if (scrollDistance > maxScrollDistance) {
-    if (currentScrollTop > lastScrollTop) {
-      // 向下滚动
-      window.scrollTo(0, lastScrollTop + maxScrollDistance);
-    } else {
-      // 向上滚动
-      window.scrollTo(0, lastScrollTop - maxScrollDistance);
-    }
-  }
+//   // 如果滚动距离超过最大值，则将滚动距离限制为最大值
+//   if (scrollDistance > maxScrollDistance) {
+//     if (currentScrollTop > lastScrollTop) {
+//       // 向下滚动
+//       window.scrollTo(0, lastScrollTop + maxScrollDistance);
+//     } else {
+//       // 向上滚动
+//       window.scrollTo(0, lastScrollTop - maxScrollDistance);
+//     }
+//   }
 
-  // 更新上次滚动位置
-  lastScrollTop = window.scrollY;
-});
+//   // 更新上次滚动位置
+//   lastScrollTop = window.scrollY;
+// });
 
 
 const page = document.querySelectorAll('.scrollSection');
