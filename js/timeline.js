@@ -65,8 +65,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("cy", myHeight / 2)
     .attr("r", 60)
     .attr("fill", "none")
-
-    .attr("stroke", "#F2E8CF");
+    .attr("stroke", "#F2E8CF")
+    .attr("stroke-width", 0.5);
 
   svg
     .append("text")
@@ -98,7 +98,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("cy", myHeight / 2)
     .attr("r", 60)
     .attr("fill", "none")
-    .attr("stroke", "#F2E8CF");
+    .attr("stroke", "#F2E8CF")
+    .attr("stroke-width", 0.5);
 
   svg
     .append("text")
@@ -130,7 +131,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("cy", myHeight / 2)
     .attr("r", 60)
     .attr("fill", "none")
-    .attr("stroke", "#F2E8CF");
+    .attr("stroke", "#F2E8CF")
+    .attr("stroke-width", 0.5);
 
   svg
     .append("text")
@@ -164,7 +166,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("cy", myHeight / 2)
     .attr("r", 60)
     .attr("fill", "none")
-    .attr("stroke", "#F2E8CF");
+    .attr("stroke", "#F2E8CF")
+    .attr("stroke-width", 0.5);
 
   svg
     .append("text")
@@ -196,7 +199,8 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("cy", myHeight / 2)
     .attr("r", 60)
     .attr("fill", "none")
-    .attr("stroke", "#F2E8CF");
+    .attr("stroke", "#F2E8CF")
+    .attr("stroke-width", 0.5);
 
   svg
     .append("text")
@@ -228,7 +232,9 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
     .attr("cy", myHeight / 2)
     .attr("r", 60)
     .attr("fill", "none")
-    .attr("stroke", "#F2E8CF");
+    .attr("stroke", "#F2E8CF")
+    .attr("stroke-width", 0.5);
+
 
   svg
     .append("text")

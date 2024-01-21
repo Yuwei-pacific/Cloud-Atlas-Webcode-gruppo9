@@ -142,8 +142,8 @@ function updateOpacity() {
 
 
   // Check scroll position for part1Svg
-  part1Svg.classList.toggle('visible', scrollY >= page[3].offsetTop)
-  timelineTitle.classList.toggle('visible', scrollY >= page[3].offsetTop)
+  part1Svg.classList.toggle('visible', scrollY >= page[3].offsetTop && scrollY <= page[10].offsetTop)
+  timelineTitle.classList.toggle('visible', scrollY >= page[3].offsetTop && scrollY <= page[10].offsetTop)
 }
 
 
