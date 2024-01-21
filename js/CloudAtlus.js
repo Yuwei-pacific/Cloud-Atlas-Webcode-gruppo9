@@ -116,7 +116,7 @@ video.addEventListener("ended", function () {
 function updateOpacity() {
   const scrollY = window.scrollY;
 
-  console.log(scrollY);
+  // console.log(scrollY);
   // Check scroll position for opacity
   everyThing.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
   future.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
@@ -157,6 +157,27 @@ function scrollText() {
 video.addEventListener("ended", function () {
   window.addEventListener('scroll', updateOpacity);
 });
+
+
+
+window.addEventListener('scroll', d => {
+  const img = document.querySelectorAll('.part2 img')
+  const scrollY = window.scrollY;
+  // console.log(img);
+  // console.log(img[0]);
+  // console.log(scrollY);
+  // console.log(page[10].offsetTop);
+  img[0].classList.toggle('visible', scrollY >= page[10].offsetTop && scrollY <= page[11].offsetTop)
+  img[1].classList.toggle('visible', scrollY >= page[11].offsetTop && scrollY <= page[12].offsetTop)
+  img[2].classList.toggle('visible', scrollY >= page[12].offsetTop && scrollY <= page[13].offsetTop)
+  img[3].classList.toggle('visible', scrollY >= page[13].offsetTop && scrollY <= page[14].offsetTop)
+  img[4].classList.toggle('visible', scrollY >= page[14].offsetTop && scrollY <= page[15].offsetTop)
+  img[5].classList.toggle('visible', scrollY >= page[15].offsetTop && scrollY <= page[16].offsetTop)
+  img[6].classList.toggle('visible', scrollY >= page[16].offsetTop && scrollY <= page[17].offsetTop)
+  img[7].classList.toggle('visible', scrollY >= page[17].offsetTop && scrollY <= page[18].offsetTop)
+  img[8].classList.toggle('visible', scrollY >= page[18].offsetTop && scrollY <= page[19].offsetTop)
+  img[9].classList.toggle('visible', scrollY >= page[19].offsetTop && scrollY <= page[20].offsetTop)
+})
 
 
 
