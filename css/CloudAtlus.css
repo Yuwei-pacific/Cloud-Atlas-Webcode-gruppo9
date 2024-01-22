@@ -314,20 +314,13 @@ img.polimi-logo {
 #nuvolaButton {
   position: fixed;
   display: inline-block;
-  /* width: 120px; */
-  /* height: 40px; */
   background-color: #15181E;
-  /* background-color: '#F2E8CF'; */
-  /* margin-bottom: 50px; */
-  /* margin-left: 50%; */
   transform: translate(-50%, -50%);
   border: none;
   top: 750px;
   left: 150px;
-  /* border-radius: 20px; */
+  font-family: helvetica;
   font-weight: 100;
-  /* font-weight: 900; */
-  /* color: #15181E; */
   color: #F2E8CF;
   cursor: pointer;
   transition: all .3s;
