@@ -134,6 +134,7 @@ h1 {
   height: 300px;
   width: 700px;
   line-height: 300px;
+  font-weight: 100;
   /* border: 2px solid #F2E8CF; */
   /* border-radius: 20px; */
 
@@ -157,13 +158,13 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: all .5s;
+  transition: all .2s;
 }
 
 .svgContainer svg text,
 circle,
 path {
-  transition: all .5s;
+  transition: all .2s;
 
 }
 
@@ -194,9 +195,69 @@ path {
   opacity: 0;
 }
 
+.nuvolaTitle {
+  padding: 100px;
+}
+
+.nuvolaTitle h3 {
+  margin-top: 200px;
+  font-size: 75.794px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: 'Brand';
+  /* 113.691px */
+  letter-spacing: -1.743px;
+}
+
+.nuvolaTitle p {
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
 div.nuvola {
+  position: relative;
   height: 1800px;
   width: 100%;
+}
+
+div.nuvola img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  /* 添加淡入淡出效果 */
+
+}
+
+.part2title {
+  width: 100%;
+  position: fixed;
+  top: 300px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.part2title h3 {
+  margin-top: 200px;
+  font-size: 75.794px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: 'Brand';
+  /* 113.691px */
+  letter-spacing: -1.743px;
+}
+
+.part2title p {
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: 100;
 }
 
 div.part2 {
@@ -216,6 +277,67 @@ div.part2 .webp {
   opacity: 0;
   transition: all 1s;
 
+}
+
+p.timeLine-Spiega {
+  position: fixed;
+  left: 50%;
+  top: 800px;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 100;
+  opacity: 0;
+  transition: all .2s;
+}
+
+img.polimi-logo {
+  /* margin-top: 20px; */
+  width: 150px;
+  height: 150px;
+  color: #F2E8CF;
+}
+
+.finalPage p {
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 50px;
+}
+
+#nuvolaButton {
+  position: fixed;
+  display: inline-block;
+  /* width: 120px; */
+  /* height: 40px; */
+  background-color: #15181E;
+  /* background-color: '#F2E8CF'; */
+  /* margin-bottom: 50px; */
+  /* margin-left: 50%; */
+  transform: translate(-50%, -50%);
+  border: none;
+  top: 750px;
+  left: 150px;
+  /* border-radius: 20px; */
+  font-weight: 100;
+  /* font-weight: 900; */
+  /* color: #15181E; */
+  color: #F2E8CF;
+  cursor: pointer;
+  transition: all .3s;
+  opacity: 0;
+}
+
+button p {
+  display: inline-block;
+  font-size: 30px;
+  text-decoration: underline;
+  line-height: 40px;
+}
+
+button span {
+  display: inline-block;
+  margin-top: -10px;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 /* ------------------------------------------ */
