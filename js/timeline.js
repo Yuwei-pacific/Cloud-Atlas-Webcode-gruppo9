@@ -51,11 +51,11 @@ d3.csv('./data/timelineCloudAtlus.csv').then((data => {
   // ------------------------------------------------------------------------------------------------------------------------------
 
   // -----------------------------------------------------sinistra-----------------------------------------------------------------
-  svg
-    .append("rect")
-    .attr("height", myHeight)
-    .attr("width", myWidth)
-    .attr("fill", "#131821");
+  // svg
+  //   .append("rect")
+  //   .attr("height", myHeight)
+  //   .attr("width", myWidth)
+  //   .attr("fill", "#131821");
 
   // 1. primo episodio
   svg
