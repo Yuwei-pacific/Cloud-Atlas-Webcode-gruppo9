@@ -195,7 +195,7 @@ window.addEventListener('scroll', d => {
   }
 
   const btnNuvola = document.querySelector('#nuvolaButton')
-  btnNuvola.classList.toggle('visible', scrollY >= page[9 + 2].offsetTop + 710 && scrollY <= page[10 + 2].offsetTop - 800)
+  btnNuvola.classList.toggle('visible', scrollY >= page[9 + 2].offsetTop + 700 && scrollY <= page[10 + 2].offsetTop - 710)
   // console.log(img);
   // console.log(img[0]);
   // console.log(scrollY);

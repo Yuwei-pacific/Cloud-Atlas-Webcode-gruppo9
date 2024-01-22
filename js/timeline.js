@@ -18,12 +18,12 @@ const outPath = d3.arc().innerRadius(75).outerRadius(115);
 d3.csv('./data/timelineCloudAtlus.csv').then((data => {
   // 声明颜色组
   const colorSet = [
-    "#e3d7d5",
-    "#cd9b9d",
-    "#a6d1e1",
-    "#deded2",
-    "#afbfd4",
-    "#e9cdb5"
+    "#cddbb7",
+    "#779cc1",
+    "#dbbcc8",
+    "#e7cf8e",
+    "#dfe8ee",
+    "#c1c2d7"
   ];
 
   // 声明 d3.pie() 生成器
