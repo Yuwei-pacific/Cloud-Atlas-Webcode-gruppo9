@@ -1,4 +1,5 @@
 const page = document.querySelectorAll('.scrollSection');
+const sections = Array.from(page);
 const everyThing = document.querySelector('.everyThing');
 const future = document.querySelector('.future');
 const textSlider = document.querySelector('.text-slider');
@@ -8,6 +9,22 @@ const part1Svg = document.querySelector('.svgContainer');
 const videoBox = document.querySelector('.videoBox')
 const video = document.getElementById('myVideo');
 const timeLineSpiega = document.querySelector('.timeLine-Spiega')
+const part2Images = document.querySelectorAll('.part2 img');
+const btnNuvola = document.querySelector('#nuvolaButton');
+
+let sectionTops = [];
+let latestScrollY = 0;
+let ticking = false;
+let scrollEffectsEnabled = false;
+let textIndex = 0;
+
+function cacheSectionTops() {
+  sectionTops = sections.map((section) => section.offsetTop);
+}
+
+function getSectionTop(index) {
+  return sectionTops[index] ?? 0;
+}
 
 
 
@@ -16,6 +33,7 @@ window.onload = function () {
   part1Svg.classList.remove('visible')
   timelineTitle.classList.remove('visible')
   timeLineSpiega.classList.remove('visible')
+  cacheSectionTops();
 };
 
 // let lastScrollTop = 0;
@@ -43,8 +61,6 @@ window.onload = function () {
 // });
 
 
-let c = 0
-scrollText()
 everyThing.classList.remove('visible');
 future.classList.remove('visible');
 textSlider.classList.remove('visible');
@@ -101,7 +117,8 @@ video.addEventListener("ended", function () {
   video.removeEventListener('pause', stopScroll)
   window.removeEventListener('scroll', playVideo)
   window.removeEventListener("scroll", stopPageScroll);
-  scrollText()
+  scrollEffectsEnabled = true;
+  handleScroll();
 
 });
 
@@ -115,50 +132,107 @@ video.addEventListener("ended", function () {
 
 // text scroll ----------------
 
-function updateOpacity() {
-  const scrollY = window.scrollY;
+function updateOpacity(scrollY) {
 
   // console.log(scrollY);
   // Check scroll position for opacity
-  everyThing.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
-  future.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
-  textSlider.classList.toggle('visible', scrollY >= page[0].offsetTop && scrollY < page[3].offsetTop - 15);
+  const section0 = getSectionTop(0);
+  const section1 = getSectionTop(1);
+  const section2 = getSectionTop(2);
+  const section3 = getSectionTop(3);
+  const section10 = getSectionTop(10);
+
+  everyThing.classList.toggle('visible', scrollY >= section0 && scrollY < section3 - 15);
+  future.classList.toggle('visible', scrollY >= section0 && scrollY < section3 - 15);
+  textSlider.classList.toggle('visible', scrollY >= section0 && scrollY < section3 - 15);
 
   // Check scroll position for text animation
-  function scrollText() {
-    for (let i = 0; i < span.length; i++) {
-      span[i].style.left = `${50 + i * 100 - c * 100}%`;
-    }
+  if (scrollY >= section2 && scrollY <= section3) {
+    textIndex = 2;
+  } else if (scrollY >= section1 && scrollY <= section2) {
+    textIndex = 1;
+  } else {
+    textIndex = 0;
   }
-  let c = 0;
-  scrollText()
-  if (scrollY >= page[1].offsetTop && scrollY <= page[2].offsetTop) {
-    c = 1
-    scrollText()
-  }
-  if (scrollY >= page[2].offsetTop && scrollY <= page[3].offsetTop) {
-    c = 2
-    scrollText()
-    // console.log(c);
+  for (let i = 0; i < span.length; i++) {
+    span[i].style.left = `${50 + i * 100 - textIndex * 100}%`;
   }
 
 
   // Check scroll position for part1Svg
-  part1Svg.classList.toggle('visible', scrollY >= page[3].offsetTop && scrollY <= page[10].offsetTop + 200)
-  timelineTitle.classList.toggle('visible', scrollY >= page[3].offsetTop && scrollY <= page[10].offsetTop + 200)
-  timeLineSpiega.classList.toggle('visible', scrollY >= page[3].offsetTop && scrollY <= page[10].offsetTop + 100)
+  part1Svg.classList.toggle('visible', scrollY >= section3 && scrollY <= section10 + 200)
+  timelineTitle.classList.toggle('visible', scrollY >= section3 && scrollY <= section10 + 200)
+  timeLineSpiega.classList.toggle('visible', scrollY >= section3 && scrollY <= section10 + 100)
 }
 
+function updatePart2(scrollY) {
+  if (scrollY >= getSectionTop(3)) {
+    videoBox.style.opacity = 0
+  } else {
+    videoBox.style.opacity = 1
+  }
 
-function scrollText() {
-  updateOpacity();
+  if (btnNuvola) {
+    btnNuvola.classList.toggle('visible', scrollY >= getSectionTop(11) + 700 && scrollY <= getSectionTop(12) - 710)
+  }
+
+  if (!part2Images.length) {
+    return;
+  }
+
+  let activeIndex = -1;
+  if (scrollY >= getSectionTop(13) - 600 && scrollY <= getSectionTop(14)) {
+    activeIndex = 0;
+  } else if (scrollY >= getSectionTop(14) && scrollY <= getSectionTop(15)) {
+    activeIndex = 1;
+  } else if (scrollY >= getSectionTop(15) && scrollY <= getSectionTop(16)) {
+    activeIndex = 2;
+  } else if (scrollY >= getSectionTop(16) && scrollY <= getSectionTop(17)) {
+    activeIndex = 3;
+  } else if (scrollY >= getSectionTop(17) && scrollY <= getSectionTop(18)) {
+    activeIndex = 4;
+  } else if (scrollY >= getSectionTop(18) && scrollY <= getSectionTop(19)) {
+    activeIndex = 5;
+  } else if (scrollY >= getSectionTop(19) && scrollY <= getSectionTop(20)) {
+    activeIndex = 6;
+  } else if (scrollY >= getSectionTop(20) && scrollY <= getSectionTop(21)) {
+    activeIndex = 7;
+  } else if (scrollY >= getSectionTop(21) && scrollY <= getSectionTop(22)) {
+    activeIndex = 8;
+  } else if (scrollY >= getSectionTop(22) && scrollY <= getSectionTop(23)) {
+    activeIndex = 9;
+  }
+
+  for (let i = 0; i < part2Images.length; i++) {
+    part2Images[i].classList.toggle('visible', i === activeIndex);
+  }
 }
 
+function handleScroll() {
+  if (!scrollEffectsEnabled) {
+    return;
+  }
 
+  updateOpacity(latestScrollY);
+  updatePart2(latestScrollY);
+}
 
-// Attach the updateOpacity function to the scroll event
-video.addEventListener("ended", function () {
-  window.addEventListener('scroll', updateOpacity);
+function onScroll() {
+  latestScrollY = window.scrollY;
+
+  if (!ticking) {
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      ticking = false;
+      handleScroll();
+    });
+  }
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', () => {
+  cacheSectionTops();
+  handleScroll();
 });
 
 // ------------------
@@ -168,50 +242,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const image1 = document.querySelector('.senzatesto');
   const image2 = document.querySelector('.contesto');
 
-  const btnNuvola = document.querySelector('#nuvolaButton')
-  btnNuvola.addEventListener('click', (d) => {
-    console.log(12312312312);
-    d.preventDefault()
-    image1.classList.toggle('visible');
-    image2.classList.toggle('visible');
-  })
-})
-
-// // ---------------
-
-window.addEventListener('scroll', d => {
-  const img = document.querySelectorAll('.part2 img')
-  const scrollY = window.scrollY;
-  // const pageNuvola = document.querySelector('.nuvola')
-  // const part2title = document.querySelector('.part2title')
-  // const part2container = document.querySelectorAll('.part2')
-  // for (i = 0; i <= part2container.length; i++) {
-  //   part2container[i].classList.toggle('visible', scrollY >= pageNuvola.offsetTop && scrollY <= page[20].offsetTop)
-  // }
-  if (scrollY >= page[3].offsetTop) {
-    videoBox.style.opacity = 0
-  } else {
-    videoBox.style.opacity = 1
+  if (btnNuvola) {
+    btnNuvola.addEventListener('click', (d) => {
+      console.log(12312312312);
+      d.preventDefault()
+      image1.classList.toggle('visible');
+      image2.classList.toggle('visible');
+    })
   }
-
-  const btnNuvola = document.querySelector('#nuvolaButton')
-  btnNuvola.classList.toggle('visible', scrollY >= page[9 + 2].offsetTop + 700 && scrollY <= page[10 + 2].offsetTop - 710)
-  // console.log(img);
-  // console.log(img[0]);
-  // console.log(scrollY);
-  // console.log(page[10].offsetTop);
-
-  // part2title.classList.toggle('visible', scrollY >= page[10 + 2].offsetTop - 300 && scrollY <= page[11 + 2].offsetTop)
-  img[0].classList.toggle('visible', scrollY >= page[11 + 2].offsetTop - 600 && scrollY <= page[12 + 2].offsetTop)
-  img[1].classList.toggle('visible', scrollY >= page[12 + 2].offsetTop && scrollY <= page[13 + 2].offsetTop)
-  img[2].classList.toggle('visible', scrollY >= page[13 + 2].offsetTop && scrollY <= page[14 + 2].offsetTop)
-  img[3].classList.toggle('visible', scrollY >= page[14 + 2].offsetTop && scrollY <= page[15 + 2].offsetTop)
-  img[4].classList.toggle('visible', scrollY >= page[15 + 2].offsetTop && scrollY <= page[16 + 2].offsetTop)
-  img[5].classList.toggle('visible', scrollY >= page[16 + 2].offsetTop && scrollY <= page[17 + 2].offsetTop)
-  img[6].classList.toggle('visible', scrollY >= page[17 + 2].offsetTop && scrollY <= page[18 + 2].offsetTop)
-  img[7].classList.toggle('visible', scrollY >= page[18 + 2].offsetTop && scrollY <= page[19 + 2].offsetTop)
-  img[8].classList.toggle('visible', scrollY >= page[19 + 2].offsetTop && scrollY <= page[20 + 2].offsetTop)
-  img[9].classList.toggle('visible', scrollY >= page[20 + 2].offsetTop && scrollY <= page[21 + 2].offsetTop)
 })
 
 
